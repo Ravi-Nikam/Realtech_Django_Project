@@ -1,0 +1,64 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Contact</title>
+</head>
+
+{% block body %}
+{% if msg %}
+		<div class="alert alert-danger">
+  			<strong>!!</strong> {{ msg }}
+		</div> 
+	{% endif %}
+<body>
+  <!-- Content page -->
+  <section class="bg0 p-t-10 p-b-22" style="padding-left: 35%;">
+    <div class="container" style="border: 11px;">
+      <div class="flex-w flex-tr">
+          <form method="post" action="{% url 'Sign-up' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h4 class="mtext-105 cl2 txt-center p-b-30">
+              Sign Up
+            </h4>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Name" placeholder="Your Name ">
+              <img class="how-pos4 pointer-none" src="{% static 'images/icons/icon-close.png' %}" alt="ICON">
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Mobile" placeholder="Your Mobile Number ">
+              <img class="how-pos4 pointer-none" src="{% static 'images/icons/icon-close.png' %}" alt="ICON">
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Email" placeholder="Your Email Address">
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="Password" name="Password" placeholder="Your Password">
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="Password" name="Cpassword" placeholder="Confirm Password">
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="Profile_picture">
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Usertype">
+                <option value="Buyer">Buyer</option>
+                <option value="Seller">Seller</option>
+              </select>
+            </div>
+
+            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+              Submit
+            </button>
+          </form>
+  </section>  
+{% endblock %}
+</body>
+</html>
