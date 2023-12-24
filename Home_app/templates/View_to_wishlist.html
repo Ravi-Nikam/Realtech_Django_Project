@@ -1,0 +1,103 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Wishlist</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for styling -->
+    <style>
+        body {
+            padding-top: 60px; /* Offset the navbar height */
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">Product Wishlist</a>
+            <!-- Other navbar links or content -->
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1 class="mt-4 mb-4">My Product Wishlist</h1>
+        <div class="row">
+            <!-- Product Cards -->
+            <div class="col-lg-4 col-md-6">
+                <div class="card">
+                    <img src="product1.jpg" class="card-img-top" alt="Product 1 Image">
+                    <div class="card-body">
+                        <h5 class="card-title">Product 1</h5>
+                        <p class="card-text">Description of Product 1.</p>
+                        <button class="btn btn-primary">Add to Wishlist</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add more product cards here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Product Wishlist</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <!-- Custom CSS for styling -->
+    <style>
+        body {
+            padding-top: 60px; /* Offset the navbar height */
+        }
+        .card {
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px 0 rgba(0,0,0,0.5);
+        }
+    </style>
+</head>
+{% block body %}
+<body>
+    <div class="container">
+        <h1 class="mt-4 mb-4">My Product Wishlist</h1>
+        <div class="row">
+            <!-- Product Cards -->
+            <div class="row">
+                {% for item in wishlist_info %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card mb-2">
+                        <img src="{{ item.Product.Product_image.url }}" class="card-img-top" alt="{{ item.Product.Product_name }}" height="250px">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ item.Product.Product_name }}</h5>
+                            <p class="card-text">{{ item.Product.Product_description }}</p>
+                                <a href="#" class="btn btn-primary">Add to Cart</a>
+                                <a href="{% url 'Remove_to_wishlist' pk=item.Product.id %}" class="btn btn-danger">Remove from Wishlist</a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            </div>
+            <!-- Add more product cards here -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and jQuery -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+{% endblock %}
+</html>

@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Contact</title>
+</head>
+
+{% block body %}
+<body>
+	<!-- Content page -->
+	<section class="bg0 p-t-104 p-b-226" style="padding-left: 35%;">
+		<div class="container">
+			<div class="flex-w flex-tr">
+					<form>
+						<h4 class="mtext-105 cl2 txt-center p-b-30">
+							Sign-up
+						</h4>
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Name" placeholder="Your Name ">
+							<img class="how-pos4 pointer-none" src="{% static 'images/icons/icon-close.png' %}" alt="ICON">
+						</div>
+
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Mobile" placeholder="Your Mobile Number ">
+							<img class="how-pos4 pointer-none" src="{% static 'images/icons/icon-close.png' %}" alt="ICON">
+						</div>
+						<div class="bor8 m-b-20 how-pos4-parent">
+							<input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="email" placeholder="Your Email Address">
+							<img class="how-pos4 pointer-none" src="{% static 'images/icons/icon-email.png' %}" alt="ICON">
+						</div>
+
+						<div class="bor5 m-b-10">
+							<textarea class="stext-111 cl2 plh3 size-120 p-lr-28 p-tb-25 " name="address" placeholder="Your Address "></textarea>
+						</div>
+
+						<button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+							Submit
+						</button>
+					</form>
+	</section>	
+{% endblock %}
+</body>
+</html>

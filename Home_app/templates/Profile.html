@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>Edit Profile</title>
+</head>
+
+{% block body %}
+{% if msg %}
+		<div class="alert alert-danger">
+  			<strong>!!</strong> {{ msg }}
+		</div> 
+	{% endif %}
+<body>
+  <!-- Content page -->
+  <section class="bg0 p-t-10 p-b-22" style="padding-left: 35%;">
+    <div class="container" style="border: 11px;">
+      <div class="flex-w flex-tr">
+          <form method="post" action="{% url 'Profile' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <h4 class="mtext-105 cl2 txt-center p-b-30">
+                Edit Profile
+            </h4>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Name" value={{ user.Name }}>
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Mobile" value={{ user.Mobile }}>
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Email" value={{ user.Email }} readonly>
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <img src="{{user.Profile_picture.url}}" width="100px" >
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+                <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="Profile_picture" >
+              </div>
+
+            {% comment %} <div class="bor8 m-b-20 how-pos4-parent">
+              <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Usertype">
+                <option value="Buyer">Buyer</option>
+                <option value="Seller">Seller</option>
+              </select>
+            </div> {% endcomment %}
+       
+            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+              Update Profile
+            </button>
+          </form>
+  </section>  
+{% endblock %}
+</body>
+</html>

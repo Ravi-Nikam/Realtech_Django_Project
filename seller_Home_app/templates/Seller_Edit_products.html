@@ -1,0 +1,87 @@
+{% extends 'seller-base.html' %}
+{% load static %}
+<!DOCTYPE html>
+<head>
+  <title>Seller update Product</title>
+</head>
+
+{% block body %}
+{% if msg %}
+		<div class="alert alert-danger">
+  			<strong>!!</strong> {{ msg }}
+		</div> 
+	{% endif %}
+<body>
+  <!-- Content page -->
+  <section class="bg0 p-t-10 p-b-22" style="padding-left: 35%;">
+    <div class="container" style="border: 11px;">
+      <div class="flex-w flex-tr">
+          <form method="post" action="{% url 'Update_product_details' Product_info.id %}" enctype="multipart/form-data">
+            {% csrf_token %}
+          <h1>  {{ Product_info.id }}</h1>
+            <h4 class="mtext-105 cl2 txt-center p-b-30">
+                Seller Update Product
+            </h4>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Product_name" 
+              value={{ Product_info.Product_name }}>
+            </div>
+            
+            
+            <div class="bor8 m-b-20 how-pos4-parent p-t-10">
+              <img src="{{Product_info.Product_image.url}}" width="100px" >
+            </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="file" name="Product_image" >
+          </div>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <input class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Product_price" 
+              value={{ Product_info.Product_price }}>
+            </div>
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Product_size">
+                <option value="{{ Product_info.Product_size }}" selected>{{ Product_info.Product_size }}</option>
+                <option value="S">S</option>
+                <option value="M">M</option>
+                <option value="L">L</option>
+                <option value="XL">XL</option>
+                <option value="XXL">XXL</option>
+              </select>
+            </div>
+            <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Product_category">
+              <option value="{{ Product_info.Product_category }}" selected>{{ Product_info.Product_category }}</option>
+              <option value="Men">Men</option>
+              <option value="Women">Women</option>
+              <option value="kids">kids</option>
+            </select>
+            <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Product_brand">
+              <option value="{{ Product_info.Product_brand }}" selected>{{ Product_info.Product_brand }}</option>
+              <option value="Levis">Levis</option>
+              <option value="Pape">Pape</option>
+              <option value="Danieam">Danieam</option>
+            </select>
+
+            <div class="bor8 m-b-20 how-pos4-parent">
+              <textarea class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" type="text" name="Product_description" 
+              value={{ Product_info.Product_description }}> </textarea>
+            </div>
+
+
+
+            {% comment %} <div class="bor8 m-b-20 how-pos4-parent">
+              <select class="stext-111 cl2 plh3 size-116 p-l-62 p-r-30" name="Usertype">
+                <option value="Buyer">Buyer</option>
+                <option value="Seller">Seller</option>
+              </select>
+            </div> {% endcomment %}
+       
+            <button class="flex-c-m stext-101 cl0 size-121 bg3 bor1 hov-btn3 p-lr-15 trans-04 pointer">
+              Update Product
+            </button>
+          </form>
+  </section>  
+{% endblock %}
+</body>
+</html>
